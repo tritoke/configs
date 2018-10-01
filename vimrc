@@ -1,1 +1,20 @@
-/root/.vimrc
+set nocompatible
+syntax on
+set number
+set tabstop=4
+set autowriteall
+set wildmenu
+set showcmd
+set hlsearch
+set ignorecase
+set smartcase
+set backspace=indent,eol,start
+set autoindent
+set nostartofline
+set ruler
+set laststatus=2
+set confirm
+set visualbell
+set mouse=a
+set cmdheight=2
+set t_vb=
