@@ -16,6 +16,5 @@ set ruler
 set laststatus=2
 set confirm
 set visualbell
-set mouse=a
 set cmdheight=2
 set t_vb=
