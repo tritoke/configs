@@ -2,7 +2,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 " general
 Plug 'ervandew/supertab' " tab completion is cool
-Plug 'benekastah/neomake' 
 Plug 'roxma/nvim-yarp'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree' " :NERDtree

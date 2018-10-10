@@ -12,7 +12,7 @@ set autowrite
 set showcmd
 set showmatch
 set incsearch
-set hlsearch
+set nohlsearch
 
 set ruler
 set cursorline
@@ -27,8 +27,6 @@ set shortmess+=c
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 source $HOME/.config/nvim/config/init.vimrc
-
-" autocmd vimenter * NERDTree
 
 syntax on 
 colorscheme monokai

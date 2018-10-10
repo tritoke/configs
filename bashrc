@@ -14,5 +14,4 @@ alias la='ls -A'
 alias grep="grep --color=auto"
 alias ccat="highlight --out-format=ansi"
 alias pdf="evince"
-alias vi="vim"
 alias vim="nvim"
