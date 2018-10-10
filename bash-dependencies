@@ -1,5 +1,4 @@
 apt-get programs:
-	highlight
-
-vim plugins:
-supertab
+	highlight 
+    evince
+    gdebi
