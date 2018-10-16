@@ -11,7 +11,6 @@ Plug 'scrooloose/syntastic' " syntax checking
 Plug 'scrooloose/nerdcommenter' " [VISUAL MODE]<leader>c<space>
 filetype plugin on
 let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
@@ -21,6 +20,9 @@ let g:NERDToggleCheckAllLines = 1
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_delay = 0
+let g:deoplete#file#enable_buffer_path=1
+let g:deoplete#auto_completion_start_length = 0
+
 Plug 'zchee/deoplete-jedi' " python autocompletion
 Plug 'tweekmonster/deoplete-clang2' " C and C++ autocompletion
 let g:deoplete#sources#clang#libclang_path="/usr/lib/llvm-6.0/lib/libclang.so.1"
