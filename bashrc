@@ -15,3 +15,5 @@ alias grep="grep --color=auto"
 alias ccat="highlight --out-format=ansi"
 alias pdf="evince"
 alias vim="nvim"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
