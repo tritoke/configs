@@ -1,3 +1,4 @@
+source ~/.profile
 shopt -s checkwinsize 				# update the window size when necessary
 shopt -s histappend 				# append to the history file
 shopt -s autocd 					# cd without using cd
