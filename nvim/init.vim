@@ -41,7 +41,7 @@ syntax on
 filetype plugin indent on
 
 " vim plug file
-source /home/tritoke/.config/nvim/config/init.vimrc
+source /root/.config/nvim/config/init.vimrc
 
 " tabularize 
 nnoremap <leader>= :Tabularize /=<LF>                                                                                                                                                                          

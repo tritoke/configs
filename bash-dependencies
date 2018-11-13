@@ -2,3 +2,4 @@ apt-get programs:
 	highlight 
     evince
     gdebi
+	tree
