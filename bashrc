@@ -1,4 +1,8 @@
 source ~/.profile
+<<<<<<< HEAD
+=======
+
+>>>>>>> 15731be18a522f27e06dff6abe2423287ee19fbc
 shopt -s checkwinsize 				# update the window size when necessary
 shopt -s histappend 				# append to the history file
 shopt -s autocd 					# cd without using cd
