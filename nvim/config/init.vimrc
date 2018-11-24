@@ -19,6 +19,4 @@ Plug 'crusoexia/vim-monokai'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
-Plug 'alx741/vim-hindent'
-Plug 'alx741/vim-stylishask'
 call plug#end()

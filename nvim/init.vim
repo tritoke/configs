@@ -97,12 +97,6 @@ let g:haskell_indent_guard = 2
 let g:haskell_indent_case_alternative = 1
 let g:cabal_indent_section = 2
 
-" linters only run manually
-let g:hindent_on_save = 0
-au FileType haskell nnoremap <silent> <leader>ph :Hindent<LF>
-let g:stylishask_on_save = 0
-au FileType haskell nnoremap <silent> <leader>ps :Stylishask<LF>
-
 " airline
 let g:airline_powerline_fonts = 1                                                                                                                                                                              
 let g:airline#extensions#tabline#enabled = 1                                                                                                                                                                   
