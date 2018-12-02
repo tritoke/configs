@@ -18,7 +18,7 @@ alias ll='ls -l'
 alias la='ls -A'
 alias grep="grep --color=auto"
 alias ccat="highlight --out-format=ansi"
-alias pdf="evince"
+alias pdf="zathura"
 alias vim="nvim"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
