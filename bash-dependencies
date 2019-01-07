@@ -1,5 +1,0 @@
-apt-get programs:
-	highlight 
-    zathura
-    gdebi
-	tree
