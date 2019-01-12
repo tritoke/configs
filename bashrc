@@ -16,8 +16,7 @@ alias grep="grep --color=auto"
 alias ccat="highlight --out-format=ansi"
 alias pdf="zathura"
 alias vim="nvim"
-alias haskell="~/Code/Haskell/projectEuler/problems"
 alias find="find 2>/dev/null"
 alias firefox="/home/tritoke/Downloads/firefox/firefox &"
-
+alias volume="pactl set-sink-volume 0"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
