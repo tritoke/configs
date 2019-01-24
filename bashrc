@@ -18,5 +18,5 @@ alias pdf="zathura"
 alias vim="nvim"
 alias find="find 2>/dev/null"
 alias firefox="/home/tritoke/Downloads/firefox/firefox &"
-alias volume="pactl set-sink-volume 0"
+alias volume="pactl set-sink-volume @DEFAULT_SINK@"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
