@@ -215,7 +215,7 @@ map <leader>fd :Files<LF>
 " Behaviour Settings {{{
 try
   " Allow persistent undo 
-  set undodir=/tmp/jeremiah/vim_undo
+  set undodir=/tmp/tritoke/vim_undo
   set undofile
 catch
 endtry
