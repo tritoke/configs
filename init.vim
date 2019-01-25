@@ -116,6 +116,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder
 Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep' " recursive faster case insensitive grep
 
+Plug 'mhinz/vim-startify' " fancy vim start screen
 Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'} " Discord RPC
 Plug 'chrisbra/Colorizer' " Highlight hex codes with correct colours
 Plug 'airblade/vim-gitgutter' " Git diff line status and git functionality
@@ -135,6 +136,13 @@ call plug#end()
 " Appearance {{{
 syntax on
 colorscheme monokai
+
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='molokai'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:webdevicons_enable_airline_statusline = 1
 " }}}
 
 " Plugin Configuration {{{
@@ -201,13 +209,6 @@ au FileType haskell nnoremap <silent> <leader>ph :Hindent<LF>
 let g:stylishask_on_save = 0
 au FileType haskell nnoremap <silent> <leader>ps :Stylishask<LF>
 
-" airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='molokai'
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:webdevicons_enable_airline_statusline = 1
-
 " fuzzy finder
 map <leader>fd :Files<LF>
 " }}}
@@ -215,7 +216,7 @@ map <leader>fd :Files<LF>
 " Behaviour Settings {{{
 try
   " Allow persistent undo 
-  set undodir=/tmp/jeremiah/vim_undo
+  set undodir=/tmp/tritoke/vim_undo
   set undofile
 catch
 endtry
