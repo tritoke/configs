@@ -2,7 +2,7 @@
 " 
 " General Options {{{
 set signcolumn=yes
-set updatetime=500
+set updatetime=750
 set encoding=utf-8
 set foldlevel=99
 set foldmethod=indent
@@ -98,7 +98,6 @@ Plug 'godlygeek/tabular' " lines up tabs
 Plug 'alx741/vim-hindent' " haskell indentation
 Plug 'alx741/vim-stylishask' " haskell style
 
-Plug 'mhinz/vim-startify' " initial start page for vim
 Plug 'ervandew/supertab' " Tab completion
 Plug 'jiangmiao/auto-pairs' " Auto-insert closing pairs
 Plug 'scrooloose/nerdtree' " File directory exporer
