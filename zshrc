@@ -43,11 +43,10 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "bhilburn/powerlevel9k" #, use:powerlevel9k.zsh-theme
 zplug "plugins/git",   from:oh-my-zsh
 zplug "plugins/wakatime",   from:oh-my-zsh
-zplug "plugins/kennethreitz",   from:oh-my-zsh
 zplug "owenstranathan/pipenv.zsh"
+zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -60,11 +59,18 @@ zplug load
 
 # }}}
 
+# spaceship prompt options {{{
+
+# VENV
+SPACESHIP_VENV_PREFIX="venv:("
+SPACESHIP_VENV_SUFFIX=") "
+
+# }}}
+
 # zsh options {{{ 
 
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
-ZSH_THEME="kennethreitz"
 watch=(notme)
 LOGCHECK=60
 REPORTTIME=5

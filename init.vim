@@ -2,7 +2,7 @@
 " 
 " General Options {{{
 set signcolumn=yes
-set updatetime=750
+" set updatetime=750
 set encoding=utf-8
 set foldlevel=99
 set foldmethod=indent
