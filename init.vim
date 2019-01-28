@@ -152,6 +152,22 @@ set completeopt=noinsert,menuone,noselect
 " Enable deoplete at startup
 let g:deoplete#enable_at_startup = 1
 
+" Define the Python interpreters to use to speed up startup
+" and to aide with working in virtual environments
+" git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+" the above command adds virtualenv plugin
+" pyenv install 3.6.5
+" pyenv install 2.7.15
+" pyenv virtualenv 3.6.5 py3nvim
+" pyenv virtualenv 2.7.15 py2nvim
+" pyenv activate py3nvim
+" pip install pynvim
+" pyenv which python  # Note the path
+" pyenv deactivate 
+" repeat for python2
+let g:python_host_prog  = '/root/.pyenv/versions/py2nvim/bin/python'	  " Python 2
+let g:python3_host_prog  = '/usr/bin/python3'	  " Python 3
+
 " tabularize
 nnoremap <leader>= :Tabularize /=<LF>
 nnoremap <leader>- :Tabularize /-><LF>

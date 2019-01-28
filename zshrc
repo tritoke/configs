@@ -30,6 +30,7 @@ alias firefox="/home/tritoke/Downloads/firefox/firefox &"
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)" # Initialise pyenv
+  eval "$(pyenv virtualenv-init -)" # initialise virtualenvs
 fi
 
 # }}}
