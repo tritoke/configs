@@ -117,7 +117,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep' " recursive faster case insensitive grep
 
 Plug 'mhinz/vim-startify' " fancy vim start screen
-Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'} " Discord RPC
 Plug 'chrisbra/Colorizer' " Highlight hex codes with correct colours
 Plug 'airblade/vim-gitgutter' " Git diff line status and git functionality
 Plug 'majutsushi/tagbar' " View and browse ctags of a file
