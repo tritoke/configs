@@ -46,7 +46,7 @@ zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "plugins/git",   from:oh-my-zsh
 zplug "plugins/wakatime",   from:oh-my-zsh
-zplug "owenstranathan/pipenv.zsh"
+zplug 'anonguy/yapipenv.zsh'
 zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
 
 if ! zplug check --verbose; then

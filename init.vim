@@ -156,7 +156,7 @@ let g:deoplete#enable_at_startup = 1
 " and to aide with working in virtual environments
 " git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
 " the above command adds virtualenv plugin
-" pyenv install 3.6.5
+" pyenv install 3.7.2
 " pyenv install 2.7.15
 " pyenv virtualenv 3.6.5 py3nvim
 " pyenv virtualenv 2.7.15 py2nvim
@@ -165,8 +165,8 @@ let g:deoplete#enable_at_startup = 1
 " pyenv which python  # Note the path
 " pyenv deactivate 
 " repeat for python2
-let g:python_host_prog  = '/root/.pyenv/versions/py2nvim/bin/python'	  " Python 2
-let g:python3_host_prog  = '/usr/bin/python3'	  " Python 3
+let g:python_host_prog  = '/home/tritoke/.pyenv/versions/py2nvim/bin/python'	  " Python 2
+let g:python3_host_prog  = '/home/tritoke/.pyenv/versions/py3nvim/bin/python'	  " Python 3
 
 " tabularize
 nnoremap <leader>= :Tabularize /=<LF>
@@ -215,7 +215,7 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_delay = 0
 let g:deoplete#file#enable_buffer_path=1
 let g:deoplete#auto_completion_start_length = 0
-let g:deoplete#sources#clang#libclang_path="/usr/lib/llvm-6.0/lib/libclang.so.1"
+let g:deoplete#sources#clang#libclang_path="/usr/lib/llvm-6.0/lib/libclang-6.0.so.1"
 let g:deoplete#sources#clang#clang_header="/usr/bin/clang"
 
 " linters only run manually because they can mess stuff up badly
