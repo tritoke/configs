@@ -165,8 +165,9 @@ let g:deoplete#enable_at_startup = 1
 " pyenv which python  # Note the path
 " pyenv deactivate 
 " repeat for python2
-let g:python_host_prog  = '/home/tritoke/.pyenv/versions/py2nvim/bin/python'	  " Python 2
-let g:python3_host_prog  = '/home/tritoke/.pyenv/versions/py3nvim/bin/python'	  " Python 3
+" let g:python_host_prog  = '/home/tritoke/.pyenv/versions/py2nvim/bin/python'	  " Python 2
+" let g:python3_host_prog  = '/home/tritoke/.pyenv/versions/py3nvim/bin/python'	  " Python 3
+source ~/pythondirs.vimrc
 
 " tabularize
 nnoremap <leader>= :Tabularize /=<LF>
