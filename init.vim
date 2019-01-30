@@ -149,9 +149,6 @@ let g:webdevicons_enable_airline_statusline = 1
 autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
 
-" Enable deoplete at startup
-let g:deoplete#enable_at_startup = 1
-
 " Define the Python interpreters to use to speed up startup
 " and to aide with working in virtual environments
 " git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
@@ -188,6 +185,10 @@ let g:necoghc_enable_detailed_browse = 1
 " nerdtree
 let g:NERDTreeGitStatusNodeColorization = 1
 map <C-n> :NERDTreeToggle<LF>
+
+" ALE options
+map <leader>g :ALEGoToDefinition<LF>
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 " nerd commenter
 " [VISUAL MODE]<leader>c<space>
