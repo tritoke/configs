@@ -167,7 +167,7 @@ let g:deoplete#enable_at_startup = 1
 " repeat for python2
 " let g:python_host_prog  = '/home/tritoke/.pyenv/versions/py2nvim/bin/python'	  " Python 2
 " let g:python3_host_prog  = '/home/tritoke/.pyenv/versions/py3nvim/bin/python'	  " Python 3
-source ~/pythondirs.vimrc
+source ~/.config/nvim/pythondirs.vimrc
 
 " tabularize
 nnoremap <leader>= :Tabularize /=<LF>
@@ -213,11 +213,12 @@ let g:cabal_indent_section = 2
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
+let g:auto_complete = 1
 let g:deoplete#auto_complete_delay = 0
-let g:deoplete#file#enable_buffer_path=1
+let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#auto_completion_start_length = 0
-let g:deoplete#sources#clang#libclang_path="/usr/lib/llvm-6.0/lib/libclang-6.0.so.1"
-let g:deoplete#sources#clang#clang_header="/usr/bin/clang"
+let g:deoplete#sources#clang#libclang_path = "/usr/lib/llvm-6.0/lib/libclang-6.0.so.1"
+let g:deoplete#sources#clang#clang_header = "/usr/bin/clang"
 
 " linters only run manually because they can mess stuff up badly
 let g:hindent_on_save = 0
