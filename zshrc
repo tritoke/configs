@@ -17,16 +17,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias l='ls'
-alias ls='ls -hN --color=auto --group-directories-first'
-alias ll='ls -l'
-alias la='ls -Al'
-alias grep="grep --color=auto"
-alias ccat="highlight --out-format=ansi"
-alias pdf="zathura"
-alias vim="nvim"
-alias find="find 2>/dev/null"
-alias firefox="/home/tritoke/Downloads/firefox/firefox &"
+source ~/.aliases
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)" # Initialise pyenv
