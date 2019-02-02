@@ -1,28 +1,11 @@
 # vim:foldmethod=marker
 
-#  Exports, Aliases and More. {{{
-
-export PATH="$HOME/riscv/gcc-riscv/install/bin:$PATH"
-export PATH="$HOME/riscv/gcc-riscv/install64/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export MYPYPATH="$HOME/networkScanner/Code/modules/"
-export ZSH="$HOME/.oh-my-zsh"
-export LANG="en_GB.UTF-8"
-export LC_ALL="en_GB.UTF-8"
-export EDITOR='nvim'
-export SSH_KEY_PATH="~/.ssh/rsa_id"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH" 
+#  sourcing {{{
 
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.aliases
-
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)" # Initialise pyenv
-  eval "$(pyenv virtualenv-init -)" # initialise virtualenvs
-fi
 
 # }}}
 
@@ -40,10 +23,12 @@ zplug "plugins/wakatime",   from:oh-my-zsh
 zplug 'anonguy/yapipenv.zsh'
 zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
 
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-      echo; zplug install
+if ! zplug check --verbose
+  then
+  printf "Install? [y/N]: "
+  if read -q
+    then
+    echo; zplug install
   fi
 fi
 

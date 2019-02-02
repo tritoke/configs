@@ -1,5 +1,5 @@
 "                            vim:foldmethod=marker
-" 
+
 " General Options {{{
 set signcolumn=yes
 " set updatetime=750
@@ -158,13 +158,11 @@ set completeopt=noinsert,menuone,noselect
 " pyenv virtualenv 3.6.5 py3nvim
 " pyenv virtualenv 2.7.15 py2nvim
 " pyenv activate py3nvim
-" pip install pynvim
-" pyenv which python  # Note the path
+" pip install pynvim neovim
 " pyenv deactivate 
 " repeat for python2
-" let g:python_host_prog  = '/home/tritoke/.pyenv/versions/py2nvim/bin/python'	  " Python 2
-" let g:python3_host_prog  = '/home/tritoke/.pyenv/versions/py3nvim/bin/python'	  " Python 3
-source ~/.config/nvim/pythondirs.vimrc
+let g:python_host_prog  = $PYENV_ROOT.'/versions/py2nvim/bin/python'	  " Python 2
+let g:python3_host_prog = $PYENV_ROOT.'/versions/py3nvim/bin/python'	  " Python 3
 
 " tabularize
 nnoremap <leader>= :Tabularize /=<LF>
