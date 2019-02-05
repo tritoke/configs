@@ -50,7 +50,7 @@ nnoremap <space> za
 nnoremap ,, :ALEFirst<CR>
 
 " switches to hexmode
-nnoremap <Leader>h :Hexmode <CR>
+nnoremap <Leader>x :Hexmode <CR>
 
 " Toggle the NERDTree sidebar
 map <F6> :NERDTreeToggle<CR>

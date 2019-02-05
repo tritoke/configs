@@ -2,9 +2,9 @@
 
 #  sourcing {{{
 
+ZSH_THEME="lambda"
 source $ZSH/oh-my-zsh.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+source ~/.env
 source ~/.aliases
 
 # }}}
@@ -13,15 +13,13 @@ source ~/.aliases
 
 source ~/.zplug/init.zsh
 
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-history-substring-search"
+zplug "zplug/zplug", hook-build:'zplug --self-manage'
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "plugins/git",   from:oh-my-zsh
 zplug "plugins/wakatime",   from:oh-my-zsh
-zplug 'anonguy/yapipenv.zsh'
-zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
+zplug "plugins/git", from:oh-my-zsh
+zplug "anonguy/yapipenv.zsh"
+
+echo "zplug"
 
 if ! zplug check --verbose
   then
@@ -32,20 +30,17 @@ if ! zplug check --verbose
   fi
 fi
 
+echo "loading"
+
 zplug load
-
-# }}}
-
-# spaceship prompt options {{{
-
-# VENV
-SPACESHIP_VENV_PREFIX="venv:("
-SPACESHIP_VENV_SUFFIX=") "
 
 # }}}
 
 # zsh options {{{ 
 
+echo "options"
+
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
 watch=(notme)
