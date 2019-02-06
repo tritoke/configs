@@ -32,6 +32,16 @@ zplug load
 
 # }}}
 
+# spaceship options {{{
+
+SPACESHIP_PYENV_PREFIX="pyenv:("
+SPACESHIP_PYENV_SUFFIX=") "
+
+SPACESHIP_VENV_PREFIX="venv:("
+SPACESHIP_VENV_SUFFIX=") "
+
+# }}}
+
 # zsh options {{{ 
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
