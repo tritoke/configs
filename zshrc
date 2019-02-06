@@ -19,8 +19,11 @@ zplug "plugins/wakatime",   from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "anonguy/yapipenv.zsh"
 
+<<<<<<< HEAD
+=======
 echo "zplug"
 
+>>>>>>> a0ec1fd2a1a6886a2e5969265b3a7fc51f9ebd5e
 if ! zplug check --verbose
   then
   printf "Install? [y/N]: "
