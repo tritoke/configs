@@ -2,9 +2,8 @@
 
 #  sourcing {{{
 
-ZSH_THEME="lambda"
+# ZSH_THEME="lambda"
 source $ZSH/oh-my-zsh.sh
-source ~/.env
 source ~/.aliases
 
 # }}}
@@ -18,12 +17,8 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "plugins/wakatime",   from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "anonguy/yapipenv.zsh"
+zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
 
-<<<<<<< HEAD
-=======
-echo "zplug"
-
->>>>>>> a0ec1fd2a1a6886a2e5969265b3a7fc51f9ebd5e
 if ! zplug check --verbose
   then
   printf "Install? [y/N]: "
@@ -33,15 +28,11 @@ if ! zplug check --verbose
   fi
 fi
 
-echo "loading"
-
 zplug load
 
 # }}}
 
 # zsh options {{{ 
-
-echo "options"
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HYPHEN_INSENSITIVE="true"

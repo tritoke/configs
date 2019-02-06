@@ -26,12 +26,3 @@ export EDITOR='nvim'
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # }}}
-
-# auto virtualenv thing for neovim {{{
-
-if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]
-then
-  source "${VIRTUAL_ENV}/bin/activate"
-fi
-
-# }}}
