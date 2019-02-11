@@ -1,5 +1,4 @@
 syntax on
-set number
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -13,7 +12,8 @@ set showmatch
 set incsearch
 set ignorecase
 set smartcase
-" allows you to use \h to toggle highlight search
+set splitbelow 
+set splitright
 nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 set ruler
 set cursorline
