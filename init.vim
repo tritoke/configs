@@ -46,6 +46,12 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " fold and unfold with space
 nnoremap <space> za
 
+" switch buffers
+" next
+nnoremap n :tabn<CR>
+" previous
+nnoremap N :tabp<CR> 
+
 " jump to the first ALE linter error
 nnoremap ,, :ALEFirst<CR>
 
