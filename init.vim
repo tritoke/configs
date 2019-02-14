@@ -48,9 +48,9 @@ nnoremap <space> za
 
 " switch buffers
 " next
-nnoremap n :tabn<CR>
+nnoremap b :tabn<CR>
 " previous
-nnoremap N :tabp<CR> 
+nnoremap B :tabp<CR> 
 
 " jump to the first ALE linter error
 nnoremap ,, :ALEFirst<CR>
