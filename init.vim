@@ -194,6 +194,9 @@ map <C-n> :NERDTreeToggle<LF>
 map <leader>g :ALEGoToDefinition<LF>
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
+" auto-pairs options
+let g:AutoPairsMultilineClose = 0
+
 " nerd commenter
 " [VISUAL MODE]<leader>c<space>
 let g:NERDSpaceDelims = 1

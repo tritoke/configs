@@ -12,6 +12,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 export PYTHONPATH=$HOME/networkScanner/Code/modules:$PYTHONPATH
 export MYPYPATH=$PYTHONPATH:$MYPYPATH
+
 if command -v pyenv 1>/dev/null 2>&1
 then
   eval "$(pyenv init -)" # Initialise pyenv
