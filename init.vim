@@ -48,9 +48,9 @@ nnoremap <space> za
 
 " switch buffers
 " next
-nnoremap b :tabn<CR>
+nnoremap = :tabn<CR>
 " previous
-nnoremap B :tabp<CR> 
+nnoremap - :tabp<CR> 
 
 " jump to the first ALE linter error
 nnoremap ,, :ALEFirst<CR>
@@ -77,7 +77,8 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 
 " enable Rmarkdown compilation with a shortcut
-autocmd FileType rmd map <leader>r :!echo<space>"rmarkdown::render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter><enter>
+autocmd FileType rmd map <leader>r :!echo<space>"rmarkdown::render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
+
 
 " make pane navigation great again
 map <C-Left> <C-w>h
