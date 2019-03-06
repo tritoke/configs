@@ -79,6 +79,8 @@ nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."
 " enable Rmarkdown compilation with a shortcut
 autocmd FileType rmd map <leader>r :!echo<space>"rmarkdown::render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
 
+" enable latex compilation with a shortcut
+autocmd FileType tex map <leader>t :!pdflatex %<CR><CR>
 
 " make pane navigation great again
 map <C-Left> <C-w>h
