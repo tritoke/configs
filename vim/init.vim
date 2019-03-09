@@ -46,6 +46,12 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " fold and unfold with space
 nnoremap <space> za
 
+" switch buffers
+" next
+nnoremap = :tabn<CR>
+" previous
+nnoremap - :tabp<CR> 
+
 " jump to the first ALE linter error
 nnoremap ,, :ALEFirst<CR>
 
@@ -71,7 +77,10 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 
 " enable Rmarkdown compilation with a shortcut
-autocmd FileType rmd map <leader>r :!echo<space>"rmarkdown::render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter><enter>
+autocmd FileType rmd map <leader>r :!echo<space>"rmarkdown::render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
+
+" enable latex compilation with a shortcut
+autocmd FileType tex map <leader>t :!pdflatex %<CR><CR>
 
 " make pane navigation great again
 map <C-Left> <C-w>h
@@ -187,6 +196,9 @@ map <C-n> :NERDTreeToggle<LF>
 " ALE options
 map <leader>g :ALEGoToDefinition<LF>
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+" auto-pairs options
+let g:AutoPairsMultilineClose = 0
 
 " nerd commenter
 " [VISUAL MODE]<leader>c<space>
