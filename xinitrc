@@ -1,4 +1,4 @@
 ~/.fehbg
 setxkbmap gb 
-~/.dwm/dwm_bar_config.sh
+~/.dwm/bar_loop.sh
 exec dwm 
