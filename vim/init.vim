@@ -1,6 +1,7 @@
 "                            vim:foldmethod=marker
 
 " General Options {{{
+syntax on
 set signcolumn=yes
 " set updatetime=750
 set encoding=utf-8
@@ -12,6 +13,7 @@ set laststatus=0 ruler
 set softtabstop=2 tabstop=2 shiftwidth=2 expandtab
 autocmd Filetype python setlocal ts=4 sw=4 sts=0
 autocmd Filetype java setlocal ts=4 sw=4 sts=0
+autocmd Filetype asm setlocal ts=4 sw=4 sts=0 ft=nasm
 
 " Automatically switch between line numbering modes
 set number relativenumber
@@ -20,6 +22,29 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
+
+" disable arrow keys to force using vim keys.
+" normal mode
+  noremap <Up> <Nop>
+  noremap <Down> <Nop>
+  noremap <Left> <Nop>
+  noremap <Right> <Nop>
+  noremap <PageUp> <Nop>
+  noremap <PageDown> <Nop>
+" insert mode
+  inoremap <Up> <Nop>
+  inoremap <Down> <Nop>
+  inoremap <Left> <Nop>
+  inoremap <Right> <Nop>
+  inoremap <PageUp> <Nop>
+  inoremap <PageDown> <Nop>
+" visual mode
+  vnoremap <Up> <Nop>
+  vnoremap <Down> <Nop>
+  vnoremap <Left> <Nop>
+  vnoremap <Right> <Nop>
+  vnoremap <PageUp> <Nop>
+  vnoremap <PageDown> <Nop>
 
 " search settings
 set showmatch
@@ -133,6 +158,7 @@ Plug 'alx741/vim-stylishask' " haskell style
 
 Plug 'ervandew/supertab' " Tab completion
 Plug 'jiangmiao/auto-pairs' " Auto-insert closing pairs
+Plug 'tpope/vim-surround' " parenthesising magic
 Plug 'scrooloose/nerdtree' " File directory exporer
 Plug 'scrooloose/nerdcommenter' " uber cool commenting out multiple lines
 Plug 'zchee/deoplete-jedi' " Deoplete jedi source
@@ -166,7 +192,6 @@ call plug#end()
 " }}}
 
 " Appearance {{{
-syntax on
 colorscheme monokai
 
 " airline
@@ -266,12 +291,10 @@ map <leader>fd :Files<LF>
 " }}}
 
 " Behaviour Settings {{{
-try
-  " Allow persistent undo 
-  set undodir=/tmp/tritoke/vim_undo
-  set undofile
-catch
-endtry
+" Allow persistent undo 
+set undolevels=10000
+set undodir=/tmp/tritoke/vim_undo
+set undofile
 
 " Jump to last location when file is opened
 if has("autocmd")
