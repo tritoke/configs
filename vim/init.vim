@@ -43,14 +43,41 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " }}}
 
 " Keyboard Shortcuts and remaps {{{
+" remapping arrow keys and pageup/down
+" normal mode
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+noremap <PageUp> <Nop>
+noremap <PageDown> <Nop>
+
+" insert mode
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <PageUp> <Nop>
+inoremap <PageDown> <Nop>
+
+" visual mode
+vnoremap <Up> <Nop>
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
+vnoremap <PageUp> <Nop>
+vnoremap <PageDown> <Nop>
+
 " fold and unfold with space
 nnoremap <space> za
 
 " switch buffers
 " next
 nnoremap = :tabn<CR>
+nnoremap L :tabn<CR>
 " previous
 nnoremap - :tabp<CR> 
+nnoremap H :tabp<CR> 
 
 " jump to the first ALE linter error
 nnoremap ,, :ALEFirst<CR>
@@ -77,16 +104,13 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 
 " enable Rmarkdown compilation with a shortcut
+autocmd FileType markdown map <leader>p :!pandoc % -s -o "%:r".pdf<CR><CR>
+
+" enable Rmarkdown compilation with a shortcut
 autocmd FileType rmd map <leader>r :!echo<space>"rmarkdown::render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
 
 " enable latex compilation with a shortcut
 autocmd FileType tex map <leader>t :!pdflatex %<CR><CR>
-
-" make pane navigation great again
-map <C-Left> <C-w>h
-map <C-Down> <C-w>j
-map <C-Up> <C-w>k
-map <C-Right> <C-w>l
 
 " }}}
 
