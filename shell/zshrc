@@ -2,8 +2,10 @@
 
 #  sourcing {{{
 
-# source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 source ~/.aliases
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # }}}
 
@@ -17,7 +19,6 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "plugins/wakatime",   from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh
 zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
 
 if ! zplug check --verbose
@@ -72,6 +73,3 @@ setopt pushd_minus              # Reference stack entries with "-".
 setopt extended_glob
 
 # }}}
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
