@@ -23,29 +23,6 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-" disable arrow keys to force using vim keys.
-" normal mode
-  noremap <Up> <Nop>
-  noremap <Down> <Nop>
-  noremap <Left> <Nop>
-  noremap <Right> <Nop>
-  noremap <PageUp> <Nop>
-  noremap <PageDown> <Nop>
-" insert mode
-  inoremap <Up> <Nop>
-  inoremap <Down> <Nop>
-  inoremap <Left> <Nop>
-  inoremap <Right> <Nop>
-  inoremap <PageUp> <Nop>
-  inoremap <PageDown> <Nop>
-" visual mode
-  vnoremap <Up> <Nop>
-  vnoremap <Down> <Nop>
-  vnoremap <Left> <Nop>
-  vnoremap <Right> <Nop>
-  vnoremap <PageUp> <Nop>
-  vnoremap <PageDown> <Nop>
-
 " search settings
 set showmatch
 set incsearch
@@ -65,6 +42,10 @@ set splitbelow splitright
 
 " highlight .md files
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" set spell checking in latex and markdown documents
+autocmd BufNewFile,BufReadPost *tex,*md,*rmd set spell
+
 " }}}
 
 " Keyboard Shortcuts and remaps {{{
@@ -95,6 +76,12 @@ vnoremap <PageDown> <Nop>
 
 " fold and unfold with space
 nnoremap <space> za
+
+" add and remove words to the spelling dictionary
+" add word
+nnoremap <leader>g zg
+" remove work
+nnoremap <leader>b zw
 
 " switch buffers
 " next
@@ -128,14 +115,14 @@ tnoremap <Esc> <C-\><C-n>
 " search can be toggled
 nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 
-" enable Rmarkdown compilation with a shortcut
+" shortcut automatically making a PDF in each of RMarkdown, Markdown
+autocmd FileType tex map <leader>p :!latexrun %<CR><CR>
 autocmd FileType markdown map <leader>p :!pandoc % -s -o "%:r".pdf<CR><CR>
+autocmd FileType rmd map <leader>p :!echo<space>"rmarkdown::render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
+" compilation of laTeX documents is handled by vimtex
 
-" enable Rmarkdown compilation with a shortcut
-autocmd FileType rmd map <leader>r :!echo<space>"rmarkdown::render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
-
-" enable latex compilation with a shortcut
-autocmd FileType tex map <leader>t :!pdflatex %<CR><CR>
+" vimtex amazing section jump thing
+autocmd FileType tex map <leader>o :VimtexTocOpen<CR>
 
 " }}}
 
@@ -152,13 +139,14 @@ Plug 'fidian/hexmode' " Switch to hex mode
 Plug 'w0rp/ale' " Asynchronous linting engine
 Plug 'ncm2/ncm2' " Auto completion manager
 
+Plug 'lervag/vimtex' " latex but like better (better completion / autocompilation)
+
 Plug 'godlygeek/tabular' " lines up tabs 
 Plug 'alx741/vim-hindent' " haskell indentation
 Plug 'alx741/vim-stylishask' " haskell style
 
 Plug 'ervandew/supertab' " Tab completion
 Plug 'jiangmiao/auto-pairs' " Auto-insert closing pairs
-Plug 'tpope/vim-surround' " parenthesising magic
 Plug 'scrooloose/nerdtree' " File directory exporer
 Plug 'scrooloose/nerdcommenter' " uber cool commenting out multiple lines
 Plug 'zchee/deoplete-jedi' " Deoplete jedi source
@@ -179,7 +167,6 @@ Plug 'mhinz/vim-startify' " fancy vim start screen
 Plug 'chrisbra/Colorizer' " Highlight hex codes with correct colours
 Plug 'airblade/vim-gitgutter' " Git diff line status and git functionality
 Plug 'majutsushi/tagbar' " View and browse ctags of a file
-Plug 'tmhedberg/SimpylFold' " Simple code folding
 Plug 'wakatime/vim-wakatime' " Wakatime integration
 Plug 'tpope/vim-fugitive' " MORE Git functionality
 
@@ -243,8 +230,12 @@ let g:NERDTreeGitStatusNodeColorization = 1
 map <C-n> :NERDTreeToggle<LF>
 
 " ALE options
-map <leader>g :ALEGoToDefinition<LF>
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+" vimtex options
+let g:vimtex_view_method = 'zathura'
+" disable latex-box mappings
+let g:LatexBox_no_mappings = 1
 
 " auto-pairs options
 let g:AutoPairsMultilineClose = 0
