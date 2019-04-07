@@ -119,6 +119,7 @@ nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."
 autocmd FileType tex map <leader>p :!latexrun %<CR><CR>
 autocmd FileType markdown map <leader>p :!pandoc % -s -o "%:r".pdf<CR><CR>
 autocmd FileType rmd map <leader>p :!echo<space>"rmarkdown::render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
+autocmd FileType rnd,markdown,tex nnoremap <leader>v :!zathura "%:r".pdf &<CR><CR>
 " compilation of laTeX documents is handled by vimtex
 
 " vimtex amazing section jump thing
