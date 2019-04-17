@@ -121,6 +121,7 @@ autocmd FileType markdown map <leader>p :!pandoc % -s -o "%:r".pdf<CR><CR>
 autocmd FileType rmd map <leader>p :!echo<space>"rmarkdown::render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
 autocmd FileType rnd,markdown,tex nnoremap <leader>v :!zathura "%:r".pdf &<CR><CR>
 " compilation of laTeX documents is handled by vimtex
+autocmd FileType markdown,tex,rmd map <leader>v :!zathura "%:r".pdf &<CR><CR>
 
 " vimtex amazing section jump thing
 autocmd FileType tex map <leader>o :VimtexTocOpen<CR>
