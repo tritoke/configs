@@ -232,6 +232,9 @@ map <C-n> :NERDTreeToggle<LF>
 
 " ALE options
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_linters = {
+\   'tex': ['chktex']
+\}
 
 " vimtex options
 let g:vimtex_view_method = 'zathura'
