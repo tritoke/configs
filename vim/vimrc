@@ -1,20 +1,72 @@
 syntax on
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
+set encoding=utf-8
+
+" Tab Configuration
+set softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+autocmd Filetype python setlocal ts=4 sw=4 sts=0
+autocmd Filetype java setlocal ts=4 sw=4 sts=0
+autocmd Filetype asm setlocal ts=4 sw=4 sts=0 ft=nasm
 set autoindent
-set autowriteall
-set wildmenu
-set showcmd
-set hlsearch
+set number relativenumber
+
+
+" search settings
 set showmatch
 set incsearch
+set hlsearch
 set ignorecase
 set smartcase
+nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
+
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" tab sutocompletion for commands
+set wildmenu
+" shoes the command you are doing as you do it as in d3-d it will display d3
+" when at -
+set showcmd
+
+" split settings for humand beings
 set splitbelow 
 set splitright
-nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
-set ruler
-set cursorline
-set laststatus=2
+
+" remapping arrow keys and pageup/down
+" normal mode
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+noremap <PageUp> <Nop>
+noremap <PageDown> <Nop>
+
+" insert mode
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <PageUp> <Nop>
+inoremap <PageDown> <Nop>
+
+" visual mode
+vnoremap <Up> <Nop>
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
+vnoremap <PageUp> <Nop>
+vnoremap <PageDown> <Nop>
+
+" switch buffers
+" next
+nnoremap = :tabn<CR>
+nnoremap L :tabn<CR>
+" previous
+nnoremap - :tabp<CR> 
+nnoremap H :tabp<CR> 
+
+" undo settings
+set undolevels=10000
+set undodir=/tmp/tritoke/vim_undo
+set undofile
+
+" jump to where you left of in the fiel.
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
