@@ -5,8 +5,6 @@ alias la='ls -Al'
 alias grep="grep --color=auto"
 alias ccat="highlight --out-format=ansi"
 alias pdf="zathura"
-alias vim="nvim"
-alias vi="/usr/bin/vim"
 alias find="find 2>/dev/null"
 alias firefox="/home/tritoke/Downloads/firefox/firefox &"
 alias proj="$HOME/school/CS/networkScanner"

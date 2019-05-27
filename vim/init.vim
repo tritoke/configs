@@ -1,20 +1,8 @@
 "                            vim:foldmethod=marker
 
+source ~/.vimrc
+
 " General Options {{{
-syntax on
-set signcolumn=yes
-" set updatetime=750
-set encoding=utf-8
-set foldlevel=99
-set foldmethod=indent
-set laststatus=0 ruler
-
-" Tab Configuration
-set softtabstop=2 tabstop=2 shiftwidth=2 expandtab
-autocmd Filetype python setlocal ts=4 sw=4 sts=0
-autocmd Filetype java setlocal ts=4 sw=4 sts=0
-autocmd Filetype asm setlocal ts=4 sw=4 sts=0 ft=nasm
-
 " Automatically switch between line numbering modes
 set number relativenumber
 augroup numbertoggle
@@ -23,74 +11,15 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-" search settings
-set showmatch
-set incsearch
-set hlsearch
-set ignorecase
-set smartcase
-
 " highlight current line
-set ruler
 set cursorline
 
 " plugins need it?
 filetype plugin indent on
 
-" splitting pane defaults
-set splitbelow splitright
-
-" highlight .md files
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-
-" set spell checking in latex and markdown documents
-autocmd BufNewFile,BufReadPost *tex,*md,*rmd set spell
-
 " }}}
 
 " Keyboard Shortcuts and remaps {{{
-" remapping arrow keys and pageup/down
-" normal mode
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-noremap <PageUp> <Nop>
-noremap <PageDown> <Nop>
-
-" insert mode
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-inoremap <PageUp> <Nop>
-inoremap <PageDown> <Nop>
-
-" visual mode
-vnoremap <Up> <Nop>
-vnoremap <Down> <Nop>
-vnoremap <Left> <Nop>
-vnoremap <Right> <Nop>
-vnoremap <PageUp> <Nop>
-vnoremap <PageDown> <Nop>
-
-" fold and unfold with space
-nnoremap <space> za
-
-" add and remove words to the spelling dictionary
-" add word
-nnoremap <leader>g zg
-" remove work
-nnoremap <leader>b zw
-
-" switch buffers
-" next
-nnoremap = :tabn<CR>
-nnoremap L :tabn<CR>
-" previous
-nnoremap - :tabp<CR> 
-nnoremap H :tabp<CR> 
-
 " jump to the first ALE linter error
 nnoremap ,, :ALEFirst<CR>
 
@@ -100,31 +29,17 @@ nnoremap <Leader>x :Hexmode <CR>
 " Toggle the NERDTree sidebar
 map <F6> :NERDTreeToggle<CR>
 
-" Copy text to the clipboard directly
-vmap <C-c> "+yi
-vmap <C-x> "+c
-" Paste text from the clipboard directly
-vmap <C-v> <ESC>"+p
-imap <C-v> <ESC>"+pa
-
-" Map the Esc key to exit terminal mode
-tnoremap <Esc> <C-\><C-n>
-
-" awesome line to toggle highlighting after a search but only until the next
-" one so each consecutive search will be highlighted but only the current
-" search can be toggled
-nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
-
-" shortcut automatically making a PDF in each of RMarkdown, Markdown
-autocmd FileType tex nnoremap <leader>p :!latexrun %<CR><CR>
-autocmd FileType markdown map <leader>p :!pandoc % -s -o "%:r".pdf<CR><CR>
-autocmd FileType rmd map <leader>p :!echo<space>"rmarkdown::render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
-autocmd FileType rnd,markdown,tex nnoremap <leader>v :!zathura "%:r".pdf &<CR><CR>
-" compilation of laTeX documents is handled by vimtex
-autocmd FileType markdown,tex,rmd map <leader>v :!zathura "%:r".pdf &<CR><CR>
-
 " vimtex amazing section jump thing
 autocmd FileType tex map <leader>o :VimtexTocOpen<CR>
+
+
+" tabularize
+nnoremap <leader>= :Tabularize /=<LF>
+nnoremap <leader>- :Tabularize /-><LF>
+
+" ghcmod-vim
+au FileType haskell nmap :t :GhcModType
+au FileType haskell nmap :tc :GhcModTypeClear
 
 " }}}
 
@@ -141,36 +56,29 @@ Plug 'fidian/hexmode' " Switch to hex mode
 Plug 'w0rp/ale' " Asynchronous linting engine
 Plug 'ncm2/ncm2' " Auto completion manager
 
-Plug 'lervag/vimtex' " latex but like better (better completion / autocompilation)
+Plug 'lervag/vimtex', { 'on': 'VimtexTocOpen', 'for': 'latex'} " latex but like better (better completion / autocompilation)
 
-Plug 'godlygeek/tabular' " lines up tabs 
-Plug 'alx741/vim-hindent' " haskell indentation
-Plug 'alx741/vim-stylishask' " haskell style
+Plug 'godlygeek/tabular', { 'for': 'haskell' } " lines up tabs 
 
 Plug 'ervandew/supertab' " Tab completion
-Plug 'jiangmiao/auto-pairs' " Auto-insert closing pairs
-Plug 'scrooloose/nerdtree' " File directory exporer
+Plug 'jiangmiao/auto-pairs', { 'for': ['python', 'c', 'c++', 'haskell', 'java'] } " Auto-insert closing pairs
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " File directory exporer
 Plug 'scrooloose/nerdcommenter' " uber cool commenting out multiple lines
-Plug 'zchee/deoplete-jedi' " Deoplete jedi source
-Plug 'tweekmonster/deoplete-clang2' " Deoplete clang source
-Plug 'eagletmt/ghcmod-vim' " type info in Haskell
-Plug 'eagletmt/neco-ghc' " Deoplete haskell source
-Plug 'w0rp/vim-polyglot' " b i g language pack
+Plug 'zchee/deoplete-jedi', { 'for': 'python' } " Deoplete jedi source
+Plug 'tweekmonster/deoplete-clang2', { 'for': 'c' } " Deoplete clang source
+Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' } " type info in Haskell
+Plug 'eagletmt/neco-ghc', { 'for': 'haskell' } " Deoplete haskell source
+" Plug 'w0rp/vim-polyglot' " b i g language pack
 
 Plug 'roxma/nvim-yarp' " Required for ncm2 and (optionally) deoplete
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'} " Neovim completion
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' } " TabNine integration
+" Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' } " TabNine integration
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder aka best thing ever
-Plug 'junegunn/fzf.vim'
-Plug 'jremmen/vim-ripgrep' " recursive faster case insensitive grep
-
-Plug 'mhinz/vim-startify' " fancy vim start screen
 Plug 'chrisbra/Colorizer' " Highlight hex codes with correct colours
-Plug 'airblade/vim-gitgutter' " Git diff line status and git functionality
-Plug 'majutsushi/tagbar' " View and browse ctags of a file
+" Plug 'airblade/vim-gitgutter' " Git diff line status and git functionality
+" Plug 'majutsushi/tagbar' " View and browse ctags of a file
 Plug 'wakatime/vim-wakatime' " Wakatime integration
-Plug 'tpope/vim-fugitive' " MORE Git functionality
+" Plug 'tpope/vim-fugitive' " MORE Git functionality
 
 " Colour schemes
 Plug 'vim-airline/vim-airline'
@@ -183,15 +91,26 @@ call plug#end()
 " Appearance {{{
 colorscheme monokai
 
+" highight a badly spelt word red
+hi clear SpellBad
+hi SpellBad ctermbg=Red 
+hi SpellCap ctermbg=DarkGrey
+
+" highlighting for folds
+hi clear Folded
+hi Folded guifg=Black
+
 " airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='molokai'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:webdevicons_enable_airline_statusline = 1
+
 " }}}
 
 " Plugin Configuration {{{
+
 " Enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
@@ -210,14 +129,6 @@ set completeopt=noinsert,menuone,noselect
 " repeat for python2
 let g:python_host_prog  = $PYENV_ROOT.'/versions/py2nvim/bin/python'	  " Python 2
 let g:python3_host_prog = $PYENV_ROOT.'/versions/py3nvim/bin/python'	  " Python 3
-
-" tabularize
-nnoremap <leader>= :Tabularize /=<LF>
-nnoremap <leader>- :Tabularize /-><LF>
-
-" ghcmod-vim
-au FileType haskell nmap :t :GhcModType
-au FileType haskell nmap :tc :GhcModTypeClear
 
 " disable haskell-vim omnifunc
 let g:haskellmode_completion_ghc = 0
@@ -241,6 +152,8 @@ let g:ale_linters = {
 let g:vimtex_view_method = 'zathura'
 " disable latex-box mappings
 let g:LatexBox_no_mappings = 1
+" compilation
+let g:vimtex_compiler_method = 'latexrun'
 
 " auto-pairs options
 let g:AutoPairsMultilineClose = 0
@@ -276,24 +189,4 @@ let g:deoplete#auto_completion_start_length = 0
 let g:deoplete#sources#clang#libclang_path = "/usr/lib/llvm-6.0/lib/libclang-6.0.so.1"
 let g:deoplete#sources#clang#clang_header = "/usr/bin/clang"
 
-" linters only run manually because they can mess stuff up badly
-let g:hindent_on_save = 0
-au FileType haskell nnoremap <silent> <leader>ph :Hindent<LF>
-let g:stylishask_on_save = 0
-au FileType haskell nnoremap <silent> <leader>ps :Stylishask<LF>
-
-" fuzzy finder
-map <leader>fd :Files<LF>
-" }}}
-
-" Behaviour Settings {{{
-" Allow persistent undo 
-set undolevels=10000
-set undodir=/tmp/tritoke/vim_undo
-set undofile
-
-" Jump to last location when file is opened
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
 " }}}
