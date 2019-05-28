@@ -1,7 +1,8 @@
-alias l='ls'
-alias ls='ls -hN --color=auto --group-directories-first'
-alias ll='ls -l'
-alias la='ls -Al'
+alias ls='exa'
+alias l='exa'
+alias ll='exa -lh'
+alias la='exa -al'
+alias tree='exa -T'
 alias grep="grep --color=auto"
 alias ccat="highlight --out-format=ansi"
 alias pdf="zathura"
